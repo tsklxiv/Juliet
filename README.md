@@ -26,6 +26,7 @@ And Juliet will calculate for you! :D
 - Calculate up to 2 numbers
 - Supports decimal number and integer
 - Supports simple operator: Plus, minus, divide, multiply, and power(`^`)
+- Supports comments (`!`)
 
 # Getting Started
 
