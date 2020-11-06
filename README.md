@@ -57,3 +57,7 @@ Since Juliet is just using simple opearators and not any complex things, help co
 # Want to contribute?
 
 Just fork this repository and make it better!
+
+# License
+
+Juliet is under the MIT license.
