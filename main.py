@@ -1,8 +1,10 @@
-import os
+# Import re for Regex support
 import re
 
+# List of operators
 operator_list = ["+", "-", "*", "/", "^"]
 
+# Operators for integer
 class IntOperator:
     def Plus(first, second):
         print(int(first) + int(second))
@@ -19,6 +21,7 @@ class IntOperator:
     def Power(first, second):
         print(int(first) ** int(second))
 
+# Operators for float
 class FloatOperator:
     def Plus(first, second):
         print(float(first) + float(second))
@@ -35,21 +38,31 @@ class FloatOperator:
     def Power(first, second):
         print(float(first) ** float(second))
 
+# Main function
 def main():
     print("Juliet Calculator version 1.0")
     print("Type 'bye' to exit the REPL.")
 
     while True:
-        ipt = input("#")
-        result = ipt.split()
-
+        ipt = input("#") # Ask user input
+        result = ipt.split() # Split input into tokens
+        
+        # If the tokens meets a comment in there('!')
+        # or meets a space, then it will skip
         if result[0] == "!" or result == "":
             pass
+        # If the tokens meets a integer
         elif re.fullmatch(r"\d+", result[0]):
+            # If there's only the integer in the token,
+            # Then print it as a int
             if len(result) == 1:
                 print(f"{result[0]} :: Int")
                 print(int(result[0]))
+            # If there's a operator in the next token,
+            # Do math
             elif result[1] in operator_list:
+                # If there's only first number and the operator,
+                # The program will print an error
                 if len(result) == 2:
                     print("Error: Missing second number")
                 elif result[1] == "+":
@@ -62,6 +75,8 @@ def main():
                     IntOperator.Divide(result[0], result[2])
                 elif result[1] == "^":
                     IntOperator.Power(result[0], result[2])
+        # This pretty much the same as the first one,
+        # Except that it is for float numbers
         elif re.fullmatch(r"\d+\.\d+", result[0]):
             if len(result) == 1:
                 print(f"{result[0]} :: Float")
